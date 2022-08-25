@@ -1,39 +1,79 @@
-
 import 'package:flutter/material.dart';
+import 'package:nptools/plugins/random_dick_length.dart';
 
 void main() {
-  runApp(const NpTools());
+  runApp(Nptools());
 }
 
-class NpTools extends StatelessWidget {
-  const NpTools({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
+class Nptools extends StatelessWidget {
+  const Nptools({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'NP-Tools Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
       home: Scaffold(
-        appBar:AppBar(
-          title: const Text('NP-Tools Appbar'),
+        appBar: AppBar(
+          title: const Text('Toolsbar'),
+          leading: const IconButton(
+            onPressed: null,
+            icon: Icon(Icons.menu),
+            tooltip: 'Menu',
+          ),
+          actions: const [
+            IconButton(
+              onPressed: null,
+              tooltip: 'Search',
+              icon: Icon(Icons.search),
+            )
+          ],
         ),
-        body: const Center(
-          child: Text('data'),
-        ),
-      )
+        // body: HomeContentdata(),
+        body: MenuContent(),
+      ),
+      theme: ThemeData.dark(),
     );
   }
 }
 
+class HomeContentdata extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Container(
+        width: 200.0,
+        height: 200.0,
+        decoration: BoxDecoration(color: Color.fromARGB(255, 255, 110, 110)),
+        child: const Text(
+          'data',
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
+  }
+}
+
+class MenuContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return ListView(
+      padding: const EdgeInsets.all(10),
+      children: const <Widget>[
+        ListTile(
+          title: Text('data'),
+          subtitle: Text('subtitle'),
+          leading: Icon(Icons.home),
+        ),
+        ListTile(
+          title: Text('data'),
+          subtitle: Text('subtitle'),
+          leading: Icon(Icons.rule_rounded),
+        ),
+        ListTile(
+          title: Text('Settings'),
+          subtitle: Text('subtitle'),
+          leading: Icon(Icons.settings),
+        ),
+      ],
+    );
+  }
+}
