@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'res/Listdata.dart';
 import 'package:nptools/plugins/random_dick_length.dart';
 
 void main() {
@@ -27,53 +28,16 @@ class Nptools extends StatelessWidget {
           ],
         ),
         // body: HomeContentdata(),
-        body: MenuContent(),
+        body: ToolsList(),
       ),
       theme: ThemeData.dark(),
     );
   }
 }
 
-class HomeContentdata extends StatelessWidget {
+class ToolsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: 200.0,
-        height: 200.0,
-        decoration: BoxDecoration(color: Color.fromARGB(255, 255, 110, 110)),
-        child: const Text(
-          'data',
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-}
-
-class MenuContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return ListView(
-      padding: const EdgeInsets.all(10),
-      children: const <Widget>[
-        ListTile(
-          title: Text('data'),
-          subtitle: Text('subtitle'),
-          leading: Icon(Icons.home),
-        ),
-        ListTile(
-          title: Text('data'),
-          subtitle: Text('subtitle'),
-          leading: Icon(Icons.rule_rounded),
-        ),
-        ListTile(
-          title: Text('Settings'),
-          subtitle: Text('subtitle'),
-          leading: Icon(Icons.settings),
-        ),
-      ],
-    );
+    return MenuContent();
   }
 }
